@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  baseAPIURL: 'https://fdc03631d442.jp.ngrok.io',
+  keyLocalAuthenInfo: 'dev_token'
 };
 
 /*
