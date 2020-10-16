@@ -1,0 +1,34 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="onClickToggle()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span>My App</span>
+    <span class="example-spacer"></span>
+    <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with search icon">
+        <mat-icon>search</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with mail icon">
+        <mat-icon [matBadge]="mailCount" matBadgeColor="warn">mail_outline</mat-icon>
+    </button>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with notifications icon">
+        <mat-icon [matBadge]="notiCount" matBadgeColor="warn">notifications_none</mat-icon>
+    </button>
+    <button mat-button [matMenuTriggerFor]="mymenu" aria-label="Example icon-button with a menu">
+        <img [src]="image">
+        <span>{{ name }}</span>
+    </button>
+    <mat-menu #mymenu="matMenu">
+        <button mat-menu-item>
+            <mat-icon>dialpad</mat-icon>
+            <span>Redial</span>
+        </button>
+        <button mat-menu-item disabled>
+            <mat-icon>voicemail</mat-icon>
+            <span>Check voice mail</span>
+        </button>
+        <button mat-menu-item (click)="onClickLogout()">
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+        </button>
+    </mat-menu>
+</mat-toolbar>

@@ -1,0 +1,25 @@
+<img class="banner"
+    src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/1200px-Angular_full_color_logo.svg.png" />
+
+<mat-nav-list>
+    <a mat-list-item [routerLink]="['/stock']" routerLinkActive="is-active">
+        <img matListAvatar src="https://image.flaticon.com/icons/svg/1198/1198345.svg">
+        <h3 matLine> {{'Stock' | uppercase}} </h3>
+    </a>
+    <a mat-list-item [routerLink]="['/shop']" routerLinkActive="is-active">
+        <img matListAvatar src="https://image.flaticon.com/icons/svg/599/599299.svg">
+        <h3 matLine> {{'Shop' | uppercase}} </h3>
+    </a>
+    <mat-divider></mat-divider>
+    <h3 matSubheader>Dashboard</h3>
+    <a mat-list-item [routerLink]="['/report']" routerLinkActive="is-active">
+        <img matListAvatar src="https://image.flaticon.com/icons/svg/386/386895.svg">
+        <h3 matLine> {{'Summary' | uppercase}} </h3>
+        <span matLine> Sale / Profit </span>
+    </a>
+    <a mat-list-item>
+        <img matListAvatar src="https://image.flaticon.com/icons/svg/505/505430.svg">
+        <h3 matLine> {{'Customer' | uppercase}} </h3>
+        <span matLine> Bangkok, Thailand </span>
+    </a>
+</mat-nav-list>

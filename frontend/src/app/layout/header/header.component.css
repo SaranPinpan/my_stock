@@ -1,0 +1,12 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+img {
+  border: 2px solid #ffffffa6;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  margin-right: 8px;
+}
