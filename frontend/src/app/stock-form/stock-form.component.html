@@ -1,1 +1,45 @@
-<p>stock-form works!</p>
+<form #productForm="ngForm" (submit)="onSubmitForm(productForm)">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                <ng-container *ngIf="editMode; else create">
+                    Edit Product
+                </ng-container>
+                <ng-template #create>
+                    Create Product
+                </ng-template>
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="input-text">
+                <input ngModel name="productId" matInput hidden>
+                <mat-form-field appearance="outline">
+                    <mat-label>Name</mat-label>
+                    <input ngModel name="name" matInput required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Price</mat-label>
+                    <input ngModel name="price" matInput type="number" required>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Stock</mat-label>
+                    <input ngModel name="stock" matInput type="number" required>
+                </mat-form-field>
+            </div>
+            <div class="upload_image">
+                <img *ngIf="imageSrc" [src]="imageSrc">
+                <button mat-stroked-button (click)="fileInput.click()" type="button">
+                    <mat-icon>photo</mat-icon>
+                    <span class="ml-2">Select image</span>
+                    <input #fileInput (change)="onUploadImage($event)" accept="image/*" type="file" />
+                </button>
+            </div>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <mat-card-actions>
+            <!-- if using ngForm must be type="button" (default: submit)-->
+            <button mat-stroked-button (click)="onClickBack()" type="button">cancel</button>
+            <button mat-raised-button color="primary" type="submit">submit</button>
+        </mat-card-actions>
+    </mat-card>
+</form>

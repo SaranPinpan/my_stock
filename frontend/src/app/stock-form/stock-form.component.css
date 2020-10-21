@@ -1,0 +1,47 @@
+.mat-card-content {
+    padding: 20px 12px;
+  }
+  
+  .input-text {
+    display: flex;
+  }
+  
+  .mat-form-field:first-of-type {
+    width: 100%;
+  }
+  
+  ::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0;
+  }
+  
+  .mat-form-field:nth-of-type(2),
+  .mat-form-field:nth-of-type(3) {
+    width: 50%;
+  }
+  
+  .mat-form-field+.mat-form-field {
+    margin-left: 8px;
+  }
+  
+  .upload_image {
+    margin-top: 12px;
+  }
+  
+  .upload_image>button {
+    vertical-align: top;
+  }
+  
+  img {
+    width: 400px;
+    height: auto;
+    margin-right: 12px;
+    border: 1px solid #efeeee;
+  }
+  
+  [type="file"] {
+    display: none;
+  }
+  
+  [type="submit"] {
+    float: right;
+  }

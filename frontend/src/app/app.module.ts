@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http'
-
+import { FormsModule } from '@angular/forms'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -21,6 +21,8 @@ import { MatSortModule } from '@angular/material/sort'
 import { MatPaginatorModule } from '@angular/material/paginator'
 import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+
 import { HeaderComponent } from './layout/header/header.component';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { StockComponent } from './stock/stock.component';
@@ -28,6 +30,7 @@ import { StockFormComponent } from './stock-form/stock-form.component';
 import { LoginComponent } from './login/login.component';
 import { ReportComponent } from './report/report.component';
 import { ShopComponent } from './shop/shop.component';
+import { httpInterceptorProviders } from './http-interceptors/interceptor';
 
 @NgModule({
   declarations: [
@@ -41,6 +44,7 @@ import { ShopComponent } from './shop/shop.component';
     ShopComponent
   ],
   imports: [
+    FormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
@@ -58,9 +62,10 @@ import { ShopComponent } from './shop/shop.component';
     MatSortModule,
     MatPaginatorModule,
     MatCardModule,
-    MatSelectModule
+    MatSelectModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

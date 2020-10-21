@@ -9,6 +9,7 @@ import { StockComponent } from './stock/stock.component';
 const routes: Routes = [
   { path: 'stock', component: StockComponent },
   { path: 'stock/form', component: StockFormComponent },
+  { path: 'stock/form/:id', component: StockFormComponent },
   { path: 'shop', component: ShopComponent },
   { path: 'report', component: ReportComponent },
   { path: 'login', component: LoginComponent },

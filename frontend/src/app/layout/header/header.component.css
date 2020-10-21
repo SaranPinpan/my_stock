@@ -10,3 +10,7 @@ img {
   object-fit: cover;
   margin-right: 8px;
 }
+
+.position-fixed{
+  position: fixed
+}

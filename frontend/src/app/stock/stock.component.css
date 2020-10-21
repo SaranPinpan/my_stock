@@ -2,12 +2,156 @@ table {
   width: 100%;
 }
 
+th.mat-header-cell:first-of-type,
+td.mat-cell:first-of-type,
+th.mat-header-cell:last-of-type,
+td.mat-cell:last-of-type {
+  padding: 8px 0
+}
+
+th.mat-column-id,
+td.mat-column-id {
+  width: 180px;
+}
+
+th.mat-column-name,
+td.mat-column-name {
+  max-width: 150px;
+}
+
+th.mat-column-stock,
+td.mat-column-stock,
+th.mat-column-price,
+td.mat-column-price {
+  padding: 0 8px;
+}
+
+th.mat-column-action,
+td.mat-column-action {
+  width: 150px;
+}
+
+::ng-deep td.mat-column-price {
+  text-align: right;
+}
+
+::ng-deep td.mat-column-id,
+::ng-deep td.mat-column-stock,
+::ng-deep td.mat-column-action {
+  text-align: center;
+}
+
+.nodata {
+  text-align: center;
+}
+
+/* sort-header */
+::ng-deep th.mat-column-price>.mat-sort-header-container {
+  justify-content: flex-end;
+}
+
+::ng-deep th.mat-column-id>.mat-sort-header-container,
+::ng-deep th.mat-column-stock>.mat-sort-header-container,
+::ng-deep th.mat-column-action>.mat-sort-header-container {
+  justify-content: center;
+}
+
+::ng-deep .mat-sort-header-arrow,
+::ng-deep .mat-sort-header-sorted {
+  color: #00bcd4;
+}
+
+/* sort-header */
+
 .mat-form-field {
   font-size: 14px;
   width: 100%;
 }
 
-td,
-th {
-  width: 25%;
+/* card */
+.info {
+  display: flex;
+  margin-bottom: 1.2rem;
+}
+
+.info mat-card {
+  width: 100%;
+}
+
+.info mat-card:nth-child(2) {
+  margin: 0 20px;
+}
+
+.mat-card-subtitle {
+  margin-bottom: 0px;
+  font-size: 20px;
+}
+
+.mat-card-avatar>img {
+  height: inherit;
+}
+
+@media (max-width: 800px) {
+  .info {
+    flex-direction: column;
+  }
+
+  .info mat-card {
+    width: unset;
+  }
+
+  .info mat-card:nth-child(2) {
+    margin: 8px 0;
+  }
+}
+
+/* card */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: white;
+}
+
+.header mat-form-field {
+  width: 60%;
+}
+
+
+::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+/* product image */
+.over-lay {
+  position: relative;
+  width: 80px;
+  margin: auto;
+  border: 1px solid #9e9e9e;
+  background-color: white;
+}
+
+.over-lay>img {
+  height: 80px;
+  width: inherit;
+  object-fit: cover;
+  display: block;
+}
+
+.over-lay-text {
+  background-color: #000;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  color: #fff;
+  opacity: 0.7;
+  width: 100%;
+}
+
+/* product image */
+
+::ng-deep .text-center {
+  text-align: center;
 }
