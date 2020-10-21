@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UqQrCE1s+9TkwMlZrQ6k6UzoubAqeHNqdqiT2JwWs4X/kbNWklNppwnmmIW5/X2ASHKomzf6i7AWhsw8lkJPpQ==",
+  "dgSpecHash": "gbEQFybnVpIzfBHw4aNAn6Nc1QBHw1eIHWsm9JHeSbFddT+RJcZ1p7fCAyYz67Qk4WJCOK30E6D1idJ2tEpTwQ==",
   "success": true,
-  "projectFilePath": "d:\\My Documents\\Desktop\\mystock\\backend\\backend.csproj",
+  "projectFilePath": "D:\\My Documents\\Desktop\\mystock\\backend\\backend.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\bpt3978\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\3.1.9\\microsoft.aspnetcore.authentication.jwtbearer.3.1.9.nupkg.sha512",
     "C:\\Users\\bpt3978\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\3.1.9\\microsoft.aspnetcore.jsonpatch.3.1.9.nupkg.sha512",

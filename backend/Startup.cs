@@ -43,6 +43,8 @@ namespace backend
 
             app.UseRouting();
 
+            app.UseCors("AllowSpecificOrigins"); // CORS => Allow Specific Origins Domain.
+
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

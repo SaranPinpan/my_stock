@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\My Documents\\Desktop\\mystock\\backend\\backend.csproj": {}
+    "D:\\My Documents\\Desktop\\mystock\\backend\\backend.csproj": {}
   },
   "projects": {
-    "d:\\My Documents\\Desktop\\mystock\\backend\\backend.csproj": {
+    "D:\\My Documents\\Desktop\\mystock\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\My Documents\\Desktop\\mystock\\backend\\backend.csproj",
+        "projectUniqueName": "D:\\My Documents\\Desktop\\mystock\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "d:\\My Documents\\Desktop\\mystock\\backend\\backend.csproj",
+        "projectPath": "D:\\My Documents\\Desktop\\mystock\\backend\\backend.csproj",
         "packagesPath": "C:\\Users\\bpt3978\\.nuget\\packages\\",
-        "outputPath": "d:\\My Documents\\Desktop\\mystock\\backend\\obj\\",
+        "outputPath": "D:\\My Documents\\Desktop\\mystock\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
