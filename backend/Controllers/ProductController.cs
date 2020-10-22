@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using backend.Data;
 using backend.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ namespace backend.Controllers
 {
     [ApiController] // [] is an annotations
     [Route("products")]
+    [Authorize]
     public class ProductController : ControllerBase
     {
         private readonly DataContext dataContext;
@@ -81,6 +83,7 @@ namespace backend.Controllers
             }
         }
 
+        [AllowAnonymous] // no need to authen
         [HttpGet("images/{name}")]
         public IActionResult ProductImage(string name)
         {

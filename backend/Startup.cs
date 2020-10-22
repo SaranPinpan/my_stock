@@ -26,7 +26,8 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            // services.AddControllers()
+            services.AddControllers().AddNewtonsoftJson(); // only for .NET Core 3 because the errors are too long.
 
             services.InstallServicesInAssembly(Configuration);
         }
@@ -44,6 +45,8 @@ namespace backend
             app.UseRouting();
 
             app.UseCors("AllowSpecificOrigins"); // CORS => Allow Specific Origins Domain.
+
+            app.UseAuthentication(); // JWT Auth
 
             app.UseAuthorization();
 
