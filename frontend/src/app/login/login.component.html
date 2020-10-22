@@ -1,1 +1,53 @@
-<p>login works!</p>
+<div class="bg">
+    <mat-card>
+        <mat-card-title>
+            <img src="assets/images/banner.jpg" />
+        </mat-card-title>
+        <mat-card-content>
+            <ng-container *ngIf="isShowLogin; else register">
+                <form #loginForm="ngForm" (submit)="onSubmitLogin(loginForm)">
+                    <mat-form-field appearance="outline">
+                        <mat-label>username</mat-label>
+                        <input ngModel name="username" matInput type="email" required>
+                        <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>password</mat-label>
+                        <input ngModel name="password" matInput type="password" required>
+                        <mat-icon matSuffix>lock</mat-icon>
+                    </mat-form-field>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary" type="submit">Sign in</button>
+                        <button mat-flat-button (click)="onClickShowLogin()">register</button>
+                    </mat-card-actions>
+                </form>
+            </ng-container>
+            <ng-template #register>
+                <form #registerForm="ngForm" (submit)="onSubmitRegister(registerForm)">
+                    <mat-form-field appearance="outline">
+                        <mat-label>username</mat-label>
+                        <input ngModel name="username" matInput type="email" required>
+                        <mat-icon matSuffix>person</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="mt-1">
+                        <mat-label>password</mat-label>
+                        <input ngModel name="password" matInput type="password" required>
+                        <mat-icon matSuffix>lock</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline" class="mt-1">
+                        <mat-label>position</mat-label>
+                        <mat-select ngModel name="position" required>
+                            <mat-option *ngFor="let item of position" [value]="item">
+                                {{ item }}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                    <mat-card-actions>
+                        <button mat-raised-button color="primary" type="submit">Register</button>
+                        <button mat-flat-button (click)="onClickShowLogin()">sign in</button>
+                    </mat-card-actions>
+                </form>
+            </ng-template>
+        </mat-card-content>
+    </mat-card>
+</div>

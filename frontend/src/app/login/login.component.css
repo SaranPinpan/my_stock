@@ -1,0 +1,40 @@
+.bg {
+  background-image: url("/assets/images/background.jpg");
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+mat-card {
+  max-width: 400px;
+  padding: 0;
+}
+
+mat-card img {
+  width: 100%;
+  height: auto;
+}
+
+mat-card-content {
+  padding: 12px 22px;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+::ng-deep .mat-form-field-wrapper {
+  padding-bottom: 0;
+}
+
+mat-card-actions {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+mat-card-actions>.mat-raised-button,
+mat-card-actions>.mat-flat-button {
+  margin-top: 12px;
+}
