@@ -1,4 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -14,16 +16,20 @@ export class HeaderComponent implements OnInit {
   name = 'Saran';
   image = 'https://material.angular.io/assets/img/examples/shiba1.jpg';
 
-  constructor() { }
+  constructor(
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
 
   onClickLogout() {
-    alert('Logout!');
+    this.authService.clearToken();
+    this.router.navigate(['login']);
   }
 
   onClickToggle() {
-    this.myToggle.emit() //sent toggle
+    this.myToggle.emit() //send toggle
   }
 }

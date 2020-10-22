@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from '../models/user.model';
+import { AuthService } from '../services/auth.service';
 import { NetworkService } from '../services/network.service';
 
 @Component({
@@ -15,9 +17,16 @@ export class LoginComponent implements OnInit {
   isShowLogin = true;
   position = ["Admin", "Cashier"];
 
-  constructor(private networkService: NetworkService) { }
+  constructor(
+    private networkService: NetworkService,
+    private authService: AuthService,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    if (this.authService.getToken()) {
+      this.router.navigate(["stock"]);
+    }
   }
 
   async onSubmitLogin(userForm: NgForm) {
@@ -31,7 +40,12 @@ export class LoginComponent implements OnInit {
 
     this.networkService.login(user).subscribe(
       result => {
-        alert(result.token);
+        if (result.token) {
+          this.authService.setToken(result.token);
+          this.router.navigate(["stock"]);
+        } else {
+          alert('Token Invalid');
+        }
       },
       error => {
         alert('Network Failure');
@@ -54,6 +68,7 @@ export class LoginComponent implements OnInit {
 
     this.networkService.register(user).subscribe(
       result => {
+        this.isShowLogin = true;
         alert('Register successfuly');
       },
       error => {

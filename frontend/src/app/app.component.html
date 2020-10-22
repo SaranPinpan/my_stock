@@ -1,12 +1,17 @@
-<mat-drawer-container fullscreen>
-  <mat-drawer mode="side" opened #sidenav>
-    <app-sidenav></app-sidenav>
-  </mat-drawer>
-  <mat-drawer-content>
-    <app-header (myToggle)="sidenav.toggle()"></app-header>
-
-    <div class="content-wrapper">
-      <router-outlet></router-outlet>
-    </div>
-  </mat-drawer-content>
-</mat-drawer-container>
+<ng-container *ngIf="authService.getToken(); else elseTemplate">
+  <mat-drawer-container fullscreen>
+    <mat-drawer mode="side" opened #sidenav>
+      <app-sidenav></app-sidenav>
+    </mat-drawer>
+    <mat-drawer-content>
+      <app-header (myToggle)="sidenav.toggle()"></app-header>
+      <div class="content-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+    </mat-drawer-content>
+  </mat-drawer-container>
+</ng-container>
+<ng-template #elseTemplate>
+  <!-- <router-outlet></router-outlet>-->    <!--  It's magic -->
+  <app-login></app-login>
+</ng-template>
