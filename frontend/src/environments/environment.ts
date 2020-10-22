@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseAPIURL: 'https://ff9a4aeeb7f0.jp.ngrok.io',
+  // baseAPIURL: 'https://ff9a4aeeb7f0.jp.ngrok.io',
+  baseAPIURL: 'https://localhost:5001',
   keyLocalAuthenInfo: 'dev_token'
 };
 
