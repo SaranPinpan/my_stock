@@ -22,4 +22,8 @@ export class AuthService {
     localStorage.removeItem(this.keyAuthen);
   }
 
+  getUserInfo(): String {
+    return localStorage.getItem('name');
+  }
+
 }

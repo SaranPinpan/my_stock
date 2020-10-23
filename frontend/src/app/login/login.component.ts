@@ -41,6 +41,7 @@ export class LoginComponent implements OnInit {
     this.networkService.login(user).subscribe(
       result => {
         if (result.token) {
+          localStorage.setItem('name', user.username);
           this.authService.setToken(result.token);
           this.router.navigate(["stock"]);
         } else {

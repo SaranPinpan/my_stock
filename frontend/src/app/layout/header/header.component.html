@@ -15,7 +15,7 @@
     </button>
     <button mat-button [matMenuTriggerFor]="mymenu" aria-label="Example icon-button with a menu">
         <img [src]="image">
-        <span>{{ name }}</span>
+        <span>{{ authService.getUserInfo() }}</span>
     </button>
     <mat-menu #mymenu="matMenu">
         <button mat-menu-item>

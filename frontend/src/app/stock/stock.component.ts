@@ -7,7 +7,6 @@ import { NetworkService } from '../services/network.service';
 import Swal from 'sweetalert2'
 import { Router } from '@angular/router';
 import { MatSnackBar, MatSnackBarVerticalPosition } from '@angular/material/snack-bar'
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-stock',
@@ -29,9 +28,7 @@ export class StockComponent implements OnInit, AfterViewInit {
     private networkService: NetworkService,
     private router: Router,
     private snackBar: MatSnackBar
-  ) {
-
-  }
+  ) { }
 
   ngOnInit(): void {
     this.feedNetwork();

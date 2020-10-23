@@ -13,12 +13,13 @@ export class HeaderComponent implements OnInit {
 
   mailCount = 99;
   notiCount = 25;
-  name = 'Saran';
+  //name = this.authService.getUserInfo;
   image = 'https://material.angular.io/assets/img/examples/shiba1.jpg';
 
   constructor(
-    private authService: AuthService,
-    private router: Router
+    public authService: AuthService,
+    private router: Router,
+
   ) { }
 
   ngOnInit(): void {
@@ -26,6 +27,7 @@ export class HeaderComponent implements OnInit {
 
   onClickLogout() {
     this.authService.clearToken();
+    localStorage.removeItem('name');
     this.router.navigate(['login']);
   }
 
