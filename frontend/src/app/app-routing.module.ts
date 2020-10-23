@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'stock/form/:id', component: StockFormComponent, canActivate: [AuthGuard] },
   { path: 'shop', component: ShopComponent, canActivate: [AuthGuard] },
   { path: 'report', component: ReportComponent, canActivate: [AuthGuard] },
-  { path: 'login', component: LoginComponent, canActivate: [AuthGuard] },
+  { path: 'login', component: LoginComponent },
   { path: '**', redirectTo: 'login' }
 ];
 
