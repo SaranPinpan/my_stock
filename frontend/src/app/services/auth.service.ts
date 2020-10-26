@@ -14,16 +14,13 @@ export class AuthService {
     return localStorage.getItem(this.keyAuthen) ?? null;  // ?? is a default value
   }
 
-  setToken(token: string) {
+  setToken(token: string, id: number) {
     localStorage.setItem(this.keyAuthen, token);
+    localStorage.setItem('id', `${id}`);
   }
 
   clearToken() {
     localStorage.removeItem(this.keyAuthen);
+    localStorage.removeItem('id');
   }
-
-  getUserInfo(): String {
-    return localStorage.getItem('name');
-  }
-
 }

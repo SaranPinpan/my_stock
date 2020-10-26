@@ -42,6 +42,14 @@
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
+                    <div class="mt-1">
+                        <img *ngIf="imageSrc" [src]="imageSrc" class="uploadImg">
+                        <button mat-stroked-button (click)="fileInput.click()" type="button">
+                            <mat-icon>photo</mat-icon>
+                            <span class="ml-2">Select image</span>
+                            <input #fileInput (change)="onUploadImage($event)" accept="image/*" type="file" />
+                        </button>
+                    </div>
                     <mat-card-actions>
                         <button mat-raised-button color="primary" type="submit">Register</button>
                         <button mat-flat-button (click)="onClickShowLogin()">sign in</button>

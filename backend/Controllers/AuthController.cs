@@ -1,5 +1,6 @@
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.IO;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -8,6 +9,8 @@ using backend.Data;
 using backend.Installers;
 using backend.Models;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
@@ -21,10 +24,13 @@ namespace backend.Controllers
 
         private readonly JwtSettings jwtSettings;
 
-        public AuthController(DataContext dataContext, JwtSettings jwtSettings)
+        private readonly IWebHostEnvironment WebHostEnvironment;
+
+        public AuthController(DataContext dataContext, JwtSettings jwtSettings, IWebHostEnvironment WebHostEnvironment)
         {
             this.dataContext = dataContext;
             this.jwtSettings = jwtSettings;
+            this.WebHostEnvironment = WebHostEnvironment;
         }
 
         //localhost:port/auth/login
@@ -36,7 +42,7 @@ namespace backend.Controllers
                 var result = dataContext.Users.SingleOrDefault(u => u.Username == model.Username); // as u == username
                 if (result != null && VerifyPassword(result.Password, model.Password)) //VerifyPassword(hashed password, input password)
                 {
-                    return Ok(new { token = BuildToken(result) });
+                    return Ok(new { token = BuildToken(result), result.Id });
                 }
 
                 return Unauthorized(); // status 401
@@ -49,10 +55,16 @@ namespace backend.Controllers
 
         //localhost:port/auth/register
         [HttpPost("register")]
-        public IActionResult Register([FromBody] Users model)
+        public IActionResult Register([FromForm] Users model, IFormFile formFile)
         {
             try
             {
+                var imageName = UploadUserImage(formFile);
+                if (imageName != null)
+                {
+                    model.Image = imageName;
+                }
+
                 model.Password = CreatePasswordHash(model.Password);
                 dataContext.Users.Add(model);
                 dataContext.SaveChanges();
@@ -124,6 +136,24 @@ namespace backend.Controllers
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public string UploadUserImage(IFormFile image)  // Copy image to path
+        {
+            string fileName = null;
+
+            if (image != null && image.Length > 0)
+            {
+                string filePath = WebHostEnvironment.WebRootPath + "/images/";  // Access images path in the project
+                fileName = Guid.NewGuid().ToString() + System.IO.Path.GetExtension(image.FileName); // unique name
+                string fullPath = filePath + fileName;
+                using (var stream = new FileStream(fullPath, FileMode.Create))
+                {
+                    image.CopyTo(stream);
+                    stream.Flush();
+                }
+            }
+            return fileName;
         }
     }
 }

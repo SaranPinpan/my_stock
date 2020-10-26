@@ -84,3 +84,8 @@ D:\My Documents\Desktop\mystock\backend\bin\Debug\netcoreapp3.1\runtimes\unix\li
 D:\My Documents\Desktop\mystock\backend\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
 D:\My Documents\Desktop\mystock\backend\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\My Documents\Desktop\mystock\backend\obj\Debug\netcoreapp3.1\backend.csproj.CopyComplete
+D:\My Documents\Desktop\mystock\backend\bin\Debug\netcoreapp3.1\backend\web.config
+D:\My Documents\Desktop\mystock\backend\bin\Debug\netcoreapp3.1\backend\appsettings.Development.json
+D:\My Documents\Desktop\mystock\backend\bin\Debug\netcoreapp3.1\backend\appsettings.json
+D:\My Documents\Desktop\mystock\backend\bin\Debug\netcoreapp3.1\backend\backend.deps.json
+D:\My Documents\Desktop\mystock\backend\bin\Debug\netcoreapp3.1\backend\backend.runtimeconfig.json

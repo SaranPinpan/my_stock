@@ -16,6 +16,8 @@ export class LoginComponent implements OnInit {
 
   isShowLogin = true;
   position = ["Admin", "Cashier"];
+  imageSrc: string | ArrayBuffer;
+  file: File;
 
   constructor(
     private networkService: NetworkService,
@@ -41,8 +43,7 @@ export class LoginComponent implements OnInit {
     this.networkService.login(user).subscribe(
       result => {
         if (result.token) {
-          localStorage.setItem('name', user.username);
-          this.authService.setToken(result.token);
+          this.authService.setToken(result.token, result.id);
           this.router.navigate(["stock"]);
         } else {
           alert('Token Invalid');
@@ -64,7 +65,8 @@ export class LoginComponent implements OnInit {
     }
 
     let user: User = {
-      ...userForm.value
+      ...userForm.value,
+      image: this.file
     }
 
     this.networkService.register(user).subscribe(
@@ -76,5 +78,17 @@ export class LoginComponent implements OnInit {
         alert('Network Failure');
       }
     );
+  }
+
+  onUploadImage(event) {
+    const metaImage = event.target.files[0];
+    if (metaImage) {
+      this.file = metaImage; //this.file uses for upload image to the server
+      const reader = new FileReader(); //preview image
+      reader.readAsDataURL(metaImage);
+      reader.onload = () => {
+        this.imageSrc = reader.result;
+      }
+    }
   }
 }

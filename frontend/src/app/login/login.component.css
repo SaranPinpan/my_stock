@@ -38,3 +38,11 @@ mat-card-actions>.mat-raised-button,
 mat-card-actions>.mat-flat-button {
   margin-top: 12px;
 }
+
+[type="file"] {
+  display: none;
+}
+
+.uploadImg {
+  max-width: 100px;
+}

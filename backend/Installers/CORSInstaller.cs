@@ -12,6 +12,8 @@ namespace backend.Installers
                options.AddPolicy("AllowSpecificOrigins", builder =>
                {
                    builder.WithOrigins(
+                       "http://localhost:8080",
+                       "http://localhost:8080/frontend",
                        "http://example.com",
                        "http://localhost:4200",
                        "http://localhost:1152",

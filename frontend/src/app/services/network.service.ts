@@ -13,6 +13,7 @@ export class NetworkService {
   baseAPIURL = environment.baseAPIURL;
   productAPI = `${environment.baseAPIURL}/products`;
   autnAPI = `${environment.baseAPIURL}/auth`;
+  userAPI = `${environment.baseAPIURL}/user`;
 
   constructor(private httpClient: HttpClient) { }
 
@@ -68,7 +69,28 @@ export class NetworkService {
   // e.g. [POST] https://localhost:5001/auth/register
   // Content-Type: application/json;
   register(user: User): Observable<any> {
-    return this.httpClient.post(`${this.autnAPI}/register`, user);
+    // return this.httpClient.post(`${this.autnAPI}/register`, user);
+    return this.httpClient.post(`${this.autnAPI}/register`, this.userFormData(user));
+  }
+
+  userFormData(user: User): FormData {
+    let formData = new FormData()
+    formData.append("username", user.username)
+    formData.append("password", user.password)
+    formData.append("position", user.position)
+    formData.append("formFile", user.image)
+    return formData
+  }
+
+  getUserInfo(id: number): Observable<User> {
+    return this.httpClient.get<User>(`${this.userAPI}/${id}`);
+  }
+
+  getUserImage(imgName): string {
+    if (imgName) {
+      return `${this.productAPI}/images/${imgName}`;
+    }
+    return 'assets/images/no_photo.jpg';
   }
 }
 

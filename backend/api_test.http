@@ -9,3 +9,5 @@ GET https://localhost:5001/products/111 HTTP/1.1
 
 DELETE https://localhost:5001/products/1 HTTP/1.1
 ### Delete product by id
+
+GET https://localhost:5001/user HTTP/1.1

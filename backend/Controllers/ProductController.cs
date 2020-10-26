@@ -33,8 +33,8 @@ namespace backend.Controllers
         {
             try
             {
-                // return Ok(dataContext.Products.ToList());  // select * from product
-                return Ok(dataContext.Products.OrderByDescending(p => p.ProductId)); // Order by ProductId
+                return Ok(dataContext.Products.ToList());  // select * from product
+                // return Ok(dataContext.Products.OrderByDescending(p => p.ProductId)); // Order by ProductId
             }
             catch (Exception)
             {
